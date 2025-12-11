@@ -1,7 +1,5 @@
 // Copyright 2022-2025 Niantic.
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using Niantic.Lightship.AR.Occlusion;
 using Niantic.Lightship.AR.Semantics;
 using UnityEngine;
@@ -17,8 +15,8 @@ public class DepthOcclusionSample : MonoBehaviour
     [SerializeField] private SliderToggle _stabilizationToggle;
     [SerializeField] private Text _loadingText;
 
-    private bool _occlusionReady = false;
-    private bool _semanticsReady = false;
+    private bool _occlusionReady;
+    private bool _semanticsReady;
 
     private void OnEnable()
     {

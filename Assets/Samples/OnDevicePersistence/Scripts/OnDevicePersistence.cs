@@ -268,7 +268,8 @@ public class OnDevicePersistence : MonoBehaviour
     private GameObject CreateAndPlaceCube(Vector3 localPos)
     {
         var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        
+        var _Material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+        go.GetComponent<Renderer>().material = _Material;
         //add it under the anchor on our map.
         _tracker.AddObjectToAnchor(go);
         go.transform.localPosition = localPos;

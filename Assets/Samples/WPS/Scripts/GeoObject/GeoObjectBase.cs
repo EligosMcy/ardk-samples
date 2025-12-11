@@ -1,3 +1,4 @@
+using System.Reflection.Emit;
 using Niantic.Lightship.AR.VpsCoverage;
 using Niantic.Lightship.AR.WorldPositioning;
 using TMPro;
@@ -147,19 +148,19 @@ public abstract class GeoObjectBase : MonoBehaviour, IGeoObject
             }
         }
     }
-    
+
     public void UpdateVisibleObjectsVisibility(Transform cameraTransform, float visibleRange)
     {
         Vector3 distanceDirection = cameraTransform.position - _visibleObjects.transform.position;
         float distance = distanceDirection.magnitude;
 
         float actualDistance = _visibleObjects.GetComponent<SortDistance>().DisplayDistance;
-        _distanceText.text = $"dist: {actualDistance.ToString("F1")}m";
+        _distanceText.text = $"dist: {actualDistance:F1}m";
 
         // Scale the visible objects based on distance
         const float MAX_SCALE_DISTANCE = 40f;
         Vector3 labelScale = Vector3.one;
-        if(distance > MAX_SCALE_DISTANCE)
+        if (distance > MAX_SCALE_DISTANCE)
         {
             labelScale = distance / MAX_SCALE_DISTANCE * labelScale;
         }

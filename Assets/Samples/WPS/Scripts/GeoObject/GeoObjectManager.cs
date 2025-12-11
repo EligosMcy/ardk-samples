@@ -9,6 +9,7 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Pool;
+using UnityEngine.Rendering;
 using Input = Niantic.Lightship.AR.Input;
 
 public class GeoObjectPair
@@ -57,10 +58,6 @@ public class GeoObjectManager : MonoBehaviour
     [SerializeField]
     private GpsGeoObject _gpsGeoObjectPrefab;
     
-    // event handlers
-    public event Action<GeoObjectPair> OnGeoObjectAdded;
-    public event Action<GeoObjectPair> OnGeoObjectUpdated;
-    public event Action<GeoObjectPair> OnGeoObjectRemoved;
     
     [Header("GeoObjectManager Parameters")]
     [SerializeField]
@@ -80,7 +77,6 @@ public class GeoObjectManager : MonoBehaviour
     private CancellationTokenSource _cancellationTokenSource;
     
     private float _initialHeading;
-    private float _initialYaw;
     
     private void Awake()
     {
@@ -116,7 +112,7 @@ public class GeoObjectManager : MonoBehaviour
 
     private async void Start()
     {
-        Camera.onPreRender += preRender;
+        RenderPipelineManager.beginCameraRendering += preRender;
         
         _wpsGeoObjectParent = new GameObject("WPS Labels");
         _wpsGeoObjectParent.transform.SetParent(_xrOrigin.TrackablesParent.transform);
@@ -135,21 +131,47 @@ public class GeoObjectManager : MonoBehaviour
         _coverageClientManager.UseCurrentLocation = true;
         
         // Start coroutine to capture initial heading when compass is ready
-        await CaptureInitialHeadingAsync();
-        
-        _coverageClientManager.TryGetCoverage(OnTryGetCoverage);
-    }
-    
-    private async Task CaptureInitialHeadingAsync()
-    {   
-        // Wait a sec for compass to stabilize
-        await Task.Delay(1000);
-        
-        // Capture the initial heading
-        _initialHeading = Input.compass.trueHeading;
+        var initialized = await TryGetInitialHeadingAsync();
+        if (initialized)
+        {
+            _coverageClientManager.TryGetCoverage(OnTryGetCoverage);
+        }
+        else
+        {
+            Debug.LogError("Compass data not available. GeoObjectManager will not start.");
+        }
     }
 
-    void preRender(Camera cam)
+    private async Task<bool> TryGetInitialHeadingAsync()
+    {
+        int maxWaitTime = 5000; // milliseconds
+        int waitedTime = 0;
+        int waitInterval = 100; // milliseconds
+
+        while (waitedTime < maxWaitTime)
+        {
+            if (Input.compass.enabled && Input.compass.timestamp > 0)
+            {
+
+
+                _initialHeading = Input.compass.trueHeading;
+
+                if(_worldPositioningManager.enabled)
+                {
+                    return true;
+                }
+            }
+
+            await Task.Delay(waitInterval);
+            waitedTime += waitInterval;
+        }
+
+        Debug.LogWarning("Compass data not available within the expected time.");
+        return false;
+    }
+    
+
+    void preRender(ScriptableRenderContext context, Camera cam)
     {
         // Translate and Rotate WPS(orange) and GPS(blue) positioned objects:
         foreach (var pair in _managedWpsGeoObjectPairs.Values)
@@ -259,8 +281,6 @@ public class GeoObjectManager : MonoBehaviour
         
         newWpsGeoObject.UpdateGeoObjectPosition(_trackingCamera.transform);
         newGpsGeoObject.UpdateGeoObjectPosition(_trackingCamera.transform);
-        
-        OnGeoObjectAdded?.Invoke(newGeoObjectPair);
     }
 
     private void UpdateGeoObjectsOf(string id, AreaTarget areaTarget)
@@ -276,8 +296,6 @@ public class GeoObjectManager : MonoBehaviour
         
         wpsObjToUpdate.UpdateGeoObjectPosition(_trackingCamera.transform);
         gpsObjToUpdate.UpdateGeoObjectPosition(_trackingCamera.transform);
-        
-        OnGeoObjectUpdated?.Invoke(geoObjectPair);
     }
 
     private void ReleaseGeoObjectsOf(string id)
@@ -290,8 +308,6 @@ public class GeoObjectManager : MonoBehaviour
         
         wpsObjToRemove.TearDown();
         gpsObjToRemove.TearDown();
-        
-        OnGeoObjectRemoved?.Invoke(geoObjectPair);
             
         _managedWpsGeoObjectPairs.Remove(id);
         _wpsGeoObjectPool.Release(wpsObjToRemove);
@@ -303,7 +319,7 @@ public class GeoObjectManager : MonoBehaviour
         _compassWorldPose.onClick.RemoveAllListeners();
         _compassMagneticHeading.onClick.RemoveAllListeners();
         
-        Camera.onPreRender -= preRender;
+        RenderPipelineManager.beginCameraRendering -= preRender;
         
         _cancellationTokenSource?.Cancel();
         _cancellationTokenSource?.Dispose();

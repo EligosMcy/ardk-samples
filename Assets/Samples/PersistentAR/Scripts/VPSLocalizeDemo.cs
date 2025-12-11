@@ -201,8 +201,8 @@ public class VPSLocalizeDemo : MonoBehaviour
         if (!_downloadedMesh) return;
         foreach (var mr in _downloadedMesh.GetComponentsInChildren<MeshRenderer>())
         {
-            // Set the material to transparent mode (3 = Transparent mode)
-            mr.material.SetFloat("_Mode", 3);
+            // Set the material to transparent surface (1= Transparent mode)
+            mr.material.SetFloat("_Surface", 1);
 
             // Get current color and modify its alpha
             Color color = mr.material.color;

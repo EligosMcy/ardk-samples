@@ -179,6 +179,9 @@ public class DatastoreManager : MonoBehaviour
     public GameObject CreateAndPlaceCube(Vector3 localPos, Color color, string name = "Cube")
     {
         var go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        var _Material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+        
+        go.GetComponent<Renderer>().material = _Material;
         go.name = name;
         go.GetComponent<Renderer>().material.color = color;
         

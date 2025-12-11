@@ -67,26 +67,30 @@ public class LightshipNavMeshDevSample : MonoBehaviour
             //project the touch point from screen space into 3d and pass that to your agent as a destination
             Ray ray = _camera.ScreenPointToRay(_primaryTouch.ReadValue<Vector2>());
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit) &&
-                _navMeshManager.LightshipNavMesh.IsOnNavMesh(hit.point, 0.2f) &&
-                !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            if (Physics.Raycast(ray, out hit))
             {
-                if (_creature == null )
+                if (_navMeshManager.LightshipNavMesh.IsOnNavMesh(hit.point, 0.2f))
                 {
-                    //TODO: Add the is there enough space to place.
-                    //have a nice fits/dont fit in the space.
+                    if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+                    {
+                        if (_creature == null)
+                        {
 
-                    _creature = Instantiate(agentPrefab);
-                    _creature.transform.position = hit.point;
-                    _agent = _creature.GetComponent<LightshipNavMeshAgent>();
-                    visualization.SetActive(true);
+                            //TODO: Add the is there enough space to place.
+                            //have a nice fits/dont fit in the space.
 
-                }
-                else
-                {
-                    _agent.SetDestination(hit.point);
-                }
-            }
+                            _creature = Instantiate(agentPrefab);
+                            _creature.transform.position = hit.point;
+                            _agent = _creature.GetComponent<LightshipNavMeshAgent>();
+                            visualization.SetActive(true);
+
+                        }
+                        else
+                        {
+                            _agent.SetDestination(hit.point);
+                        }
+                    }
+            } }
         }
     }
 

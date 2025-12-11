@@ -8,7 +8,7 @@ public class VersionRead : MonoBehaviour
 
     public Text uiTextBox;
 
-    private const string SamplesVersion = "3.16.0";
+    private const string SamplesVersion = "3.17.0";
 
     void Awake(){
         Screen.orientation = ScreenOrientation.Portrait;

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Input = Niantic.Lightship.AR.Input;
 
 public class GpsGeoObject : GeoObjectBase
 {
