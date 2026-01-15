@@ -1,5 +1,0 @@
-D:/Project/Es-ardk-samples/.utmp/RelWithDebInfo/3q5h2s2m/armeabi-v7a/CMakeFiles/edit_cache.dir
-D:/Project/Es-ardk-samples/.utmp/RelWithDebInfo/3q5h2s2m/armeabi-v7a/CMakeFiles/rebuild_cache.dir
-D:/Project/Es-ardk-samples/.utmp/RelWithDebInfo/3q5h2s2m/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
-D:/Project/Es-ardk-samples/.utmp/RelWithDebInfo/3q5h2s2m/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
-D:/Project/Es-ardk-samples/.utmp/RelWithDebInfo/3q5h2s2m/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir
