@@ -705,7 +705,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &135584712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,7 +856,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &149454614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,7 +1625,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &406084501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1804,8 +1801,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 482743728}
   m_HandleRect: {fileID: 482743727}
   m_Direction: 2
-  m_Value: 1.0000001
-  m_Size: 0.56099874
+  m_Value: 1
+  m_Size: 0.19947931
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2565,7 +2562,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &639965763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2950,7 +2946,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &687597861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3289,7 +3284,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &817117355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3441,7 +3435,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &872415676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3961,7 +3954,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &987925298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4113,7 +4105,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &1018037679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4938,7 +4929,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &1178707890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5733,7 +5723,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &1408136549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6240,7 +6229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.8156863, g: 0.92156863, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6401,7 +6390,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &1477865244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6782,7 +6770,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &1553402847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6998,7 +6985,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &1570906163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7941,7 +7927,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &1936371667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8410,7 +8395,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &2058213005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8712,7 +8696,6 @@ MonoBehaviour:
   _waitForARSessionReady: 0
   _arSessionTimeout: 2
   _waitForCameraFrames: 1
-  _cameraFrameTimeout: 5
 --- !u!114 &2098505871
 MonoBehaviour:
   m_ObjectHideFlags: 0
