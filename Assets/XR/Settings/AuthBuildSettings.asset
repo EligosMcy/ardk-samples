@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c39107325414447ba89be3a18a176ad, type: 3}
   m_Name: AuthBuildSettings
   m_EditorClassIdentifier: 
+  _authEnvironment: 2
   _refreshToken: 
   _refreshExpiresAt: 0
   _accessToken: 
