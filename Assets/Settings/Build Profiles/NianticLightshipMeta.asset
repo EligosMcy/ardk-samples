@@ -29,8 +29,6 @@ MonoBehaviour:
   - m_enabled: 1
     m_path: Assets/Samples/Niantic Lightship Meta Plugin/3.17.0-2512092207/Samples/Depth/Scenes/DepthImage.unity
   - m_enabled: 1
-    m_path: Assets/Samples/Niantic Lightship Meta Plugin/3.17.0-2512092207/Samples/VPS/Scenes/VPSLocalization.unity
-  - m_enabled: 1
     m_path: Assets/Samples/Niantic Lightship Meta Plugin/3.17.0-2512092207/Samples/Semantics/Scenes/SemanticsImage.unity
   - m_enabled: 1
     m_path: Assets/Samples/Niantic Lightship Meta Plugin/3.17.0-2512092207/Samples/Semantics/Scenes/SemanticsPicker.unity
