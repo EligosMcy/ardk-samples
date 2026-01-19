@@ -1,7 +1,15 @@
+using System;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
-public class TestScript : MonoBehaviour
+public class TestScript
 {
-    //Todo:在OcclusionMesh脚本中我有注释掉一部分在ModuleURPEnabled的RenderPass的功能
+    //Todo:在OcclusionMesh脚本中有关于MeshRenderingPass的报错
+    //这样修改它
+    // Configure the render pass
+    // _renderPass.Material = Material;
+    // _renderPass.Mesh =_mesh;
+
+    //命名空间和类
+    // using Niantic.Lightship.AR.Occlusion;
+    // private MeshRenderingPass _renderPass;
 }
